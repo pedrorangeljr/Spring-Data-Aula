@@ -28,5 +28,7 @@ public class AppSpringDataTeste {
 		usuarioSpringData.setNome("Teste4");
 		
 		interfaceSpringDataUser.save(usuarioSpringData);
+		
+		System.out.println("Quantidade de usuarios: " + interfaceSpringDataUser.count());
 	}
 }
