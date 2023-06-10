@@ -19,7 +19,7 @@ public class AppSpringDataTeste {
 	private InterfaceSpringDataUser interfaceSpringDataUser;
 
 	@Test
-	public void testeInsert() {
+	public void testeInsert() { // salva Usuario
 		
 		UsuarioSpringData usuarioSpringData =  new UsuarioSpringData();
 		
@@ -35,7 +35,7 @@ public class AppSpringDataTeste {
 	}
 	
 	@Test
-	public void testeConsultar() {
+	public void testeConsultar() { // Consulta apenas um usuario.
 		
 		Optional<UsuarioSpringData> usuarioSpringData = interfaceSpringDataUser.findById(3L);
 		
@@ -47,7 +47,7 @@ public class AppSpringDataTeste {
 	}
 	
 	@Test
-	public void testeConsultaTodos() {
+	public void testeConsultaTodos() {  // Lista todos na tela
 		
 		Iterable<UsuarioSpringData> lista = interfaceSpringDataUser.findAll();
 		
@@ -60,5 +60,17 @@ public class AppSpringDataTeste {
 			System.out.println(usuarioSpringData.getNome());
 			System.out.println("---------------------------------------");
 		}
+	}
+	
+	@Test
+	public void testeUpdate() {
+		
+		Optional<UsuarioSpringData> usuarioSpringData = interfaceSpringDataUser.findById(4L);
+		
+		UsuarioSpringData data = usuarioSpringData.get();
+		
+		data.setNome("Patricia Candido");
+		
+		interfaceSpringDataUser.save(data);
 	}
 }
