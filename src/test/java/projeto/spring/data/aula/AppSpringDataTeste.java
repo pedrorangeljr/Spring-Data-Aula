@@ -19,22 +19,22 @@ public class AppSpringDataTeste {
 	@Autowired
 	private InterfaceSpringDataUser interfaceSpringDataUser;
 
-	/*
-	 * @Test public void testeInsert() { // salva Usuario
-	 * 
-	 * UsuarioSpringData usuarioSpringData = new UsuarioSpringData();
-	 * 
-	 * usuarioSpringData.setEmail("pedro@hotmail.com");
-	 * usuarioSpringData.setIdade(45); usuarioSpringData.setLogin("pedro");
-	 * usuarioSpringData.setSenha("pedro"); usuarioSpringData.setNome("pedro");
-	 * 
-	 * interfaceSpringDataUser.save(usuarioSpringData);
-	 * 
-	 * //System.out.println("Quantidade de usuarios: " +
-	 * interfaceSpringDataUser.count()); }
-	 */
+	@Test public void testeInsert() { // salva Usuario
+	  
+	  UsuarioSpringData usuarioSpringData = new UsuarioSpringData();
+	 
+	  usuarioSpringData.setEmail("pedro@hotmail.com");
+	  usuarioSpringData.setIdade(45); usuarioSpringData.setLogin("pedro");
+	  usuarioSpringData.setSenha("pedro"); usuarioSpringData.setNome("pedro");
+	  
+	  interfaceSpringDataUser.save(usuarioSpringData);
+	 
+	 //System.out.println("Quantidade de usuarios: " +
+	 interfaceSpringDataUser.count(); 
+	 
+	  }
 
-	/*@Test
+	@Test
 	public void testeConsultar() { // Consulta apenas um usuario.
 
 		Optional<UsuarioSpringData> usuarioSpringData = interfaceSpringDataUser.findById(3L);
@@ -96,20 +96,19 @@ public class AppSpringDataTeste {
 			System.out.println(usuarioSpringData.getNome());
 			System.out.println("---------------------------------------");
 		}
-	}*/
+	}
 
 	@Test
 	public void testeConsultaNomeParam() { // bucar usuario por like
 
 		UsuarioSpringData usuarioSpringData = interfaceSpringDataUser.buscaPorNomeParam("pedro");
 
+		System.out.println(usuarioSpringData.getEmail());
+		System.out.println(usuarioSpringData.getIdade());
+		System.out.println(usuarioSpringData.getLogin());
+		System.out.println(usuarioSpringData.getSenha());
+		System.out.println(usuarioSpringData.getNome());
+		System.out.println("---------------------------------------");
 
-			System.out.println(usuarioSpringData.getEmail());
-			System.out.println(usuarioSpringData.getIdade());
-			System.out.println(usuarioSpringData.getLogin());
-			System.out.println(usuarioSpringData.getSenha());
-			System.out.println(usuarioSpringData.getNome());
-			System.out.println("---------------------------------------");
-		
 	}
 }
